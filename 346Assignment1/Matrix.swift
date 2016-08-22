@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  Matrix.swift
 //  346Assignment1
 //
 //  Created by Patrick Skinner on 8/23/16.
@@ -7,6 +7,3 @@
 //
 
 import Foundation
-
-print("Hello, World!")
-
