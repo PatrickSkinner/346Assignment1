@@ -7,11 +7,8 @@
 //
 
 import Foundation
-extension Float: MatrixData { }
-extension Double: MatrixData { }
-extension Int: MatrixData { }
 
-class Matrix: BasicMatrix, CustomStringConvertible {
+class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
     var rows: Int
     var columns: Int
     var transpose: Matrix
@@ -25,7 +22,7 @@ class Matrix: BasicMatrix, CustomStringConvertible {
     
     subscript(row: Int, column: Int) -> T{
         get {
-            return 0;
+            return T();
         }
         set {
             
@@ -39,7 +36,4 @@ class Matrix: BasicMatrix, CustomStringConvertible {
     var description: String{
         return "ToString"
     }
-}
-
-class T: MatrixData {
 }
