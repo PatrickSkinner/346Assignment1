@@ -35,6 +35,6 @@ class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
     }
     
     var description: String{
-        return "ToString"
+        return "MatrixToString"
     }
 }

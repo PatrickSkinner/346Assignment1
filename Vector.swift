@@ -35,6 +35,6 @@ class Vector<T: MatrixData>: BasicVector{
     }
     
     var description: String{
-        return "ToString"
+        return vector.description
     }
 }
