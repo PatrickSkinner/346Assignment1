@@ -12,17 +12,18 @@ class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
     var rows: Int
     var columns: Int
     var transpose: Matrix
+    var matrix: [[T]]
     
     init(rows: Int, columns: Int) {
         self.rows = rows
         self.columns = columns
         self.transpose = Matrix.init(rows: columns, columns: rows)
-        
+        self.matrix = [[T]](count: rows, repeatedValue:[T](count: columns, repeatedValue:T()))
     }
     
     subscript(row: Int, column: Int) -> T{
         get {
-            return T();
+            return matrix[row][column];
         }
         set {
             
