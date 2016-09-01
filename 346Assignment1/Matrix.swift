@@ -11,18 +11,19 @@ import Foundation
 public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
     public var rows: Int
     public var columns: Int
+    var matrix: [[T]]
+    
     public var transpose: Matrix<T>{
         get{
             var temp: [[T]] = [[T]](count: columns, repeatedValue:[T](count: rows, repeatedValue:T()))
             for x in 0...rows-1 {
                 for y in 0...columns-1 {
-                    temp[y][x] = matrix[y][x]
+                    temp[y][x] = matrix[x][y]
                 }
             }
             return Matrix(rows: columns, columns: rows, matrix: temp)
         }
     }
-    var matrix: [[T]]
     
     init(rows: Int, columns: Int) {
         self.rows = rows
@@ -47,7 +48,7 @@ public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
     }
     
     public func copy() -> Matrix {
-        return Matrix(rows: 3, columns: 3);
+        return Matrix(rows: 3, columns: 3, matrix: matrix);
     }
     
     public var description: String{
@@ -60,4 +61,5 @@ public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
         }
         return result
     }
+    
 }

@@ -17,6 +17,11 @@ public class Vector<T: MatrixData>: BasicVector{
         vector = Matrix.init(rows: 1, columns: size)
     }
     
+    init(size: Int, vector: Matrix<T>) {
+        self.size = size
+        self.vector = vector
+    }
+    
     public func dot(v: Vector<T>) -> T{
         return T()
     }
@@ -31,7 +36,7 @@ public class Vector<T: MatrixData>: BasicVector{
     }
     
     public func copy() -> Vector {
-        return self;
+        return Vector(size: size, vector: vector)
     }
     
     public var description: String{
