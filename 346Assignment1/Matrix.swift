@@ -13,7 +13,13 @@ public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
     public var columns: Int
     public var transpose: Matrix<T>{
         get{
-            return self
+            var temp: [[T]] = [[T]](count: columns, repeatedValue:[T](count: rows, repeatedValue:T()))
+            for x in 0...rows-1 {
+                for y in 0...columns-1 {
+                    temp[y][x] = matrix[y][x]
+                }
+            }
+            return Matrix(rows: columns, columns: rows, matrix: temp)
         }
     }
     var matrix: [[T]]
@@ -22,6 +28,12 @@ public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
         self.rows = rows
         self.columns = columns
         self.matrix = [[T]](count: rows, repeatedValue:[T](count: columns, repeatedValue:T()))
+    }
+    
+    init(rows: Int, columns: Int, matrix: [[T]]){
+        self.rows = rows
+        self.columns = columns
+        self.matrix = matrix
     }
     
     
