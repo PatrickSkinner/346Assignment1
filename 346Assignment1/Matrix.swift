@@ -42,8 +42,8 @@ public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
         var result = ""
         for x in 0 ..< matrix.count {
             for y in 0 ..< matrix[x].count {
-                result += String(matrix[x][y])
-            }
+                result += String(matrix[x][y]) + "," + "\t"
+                }
             result += "\n"
         }
         return result
