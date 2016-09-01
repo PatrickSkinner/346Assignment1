@@ -11,15 +11,19 @@ import Foundation
 public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
     public var rows: Int
     public var columns: Int
-    //public var transpose: Matrix
+    public var transpose: Matrix<T>{
+        get{
+            return self
+        }
+    }
     var matrix: [[T]]
     
     init(rows: Int, columns: Int) {
         self.rows = rows
         self.columns = columns
-        //self.transpose = Matrix(rows: columns, columns: rows)
         self.matrix = [[T]](count: rows, repeatedValue:[T](count: columns, repeatedValue:T()))
     }
+    
     
     public subscript(row: Int, column: Int) -> T{
         get {

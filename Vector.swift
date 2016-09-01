@@ -23,10 +23,10 @@ public class Vector<T: MatrixData>: BasicVector{
     
     public subscript(index: Int) -> T{
         get {
-            return vector[0, index];
+            return vector[0,index];
         }
         set {
-            
+            vector[0,index] = newValue
         }
     }
     
