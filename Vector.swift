@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Vector<T: MatrixData>: BasicVector{
-    var size: Int
+public class Vector<T: MatrixData>: BasicVector{
+    public var size: Int
     var vector: Matrix<T>
     
     init(size: Int) {
@@ -17,11 +17,11 @@ class Vector<T: MatrixData>: BasicVector{
         vector = Matrix.init(rows: 1, columns: size)
     }
     
-    func dot(v: Vector<T>) -> T{
+    public func dot(v: Vector<T>) -> T{
         return T()
     }
     
-    subscript(index: Int) -> T{
+    public subscript(index: Int) -> T{
         get {
             return vector[0, index];
         }
@@ -30,11 +30,11 @@ class Vector<T: MatrixData>: BasicVector{
         }
     }
     
-    func copy() -> Vector {
+    public func copy() -> Vector {
         return self;
     }
     
-    var description: String{
+    public var description: String{
         return vector.description
     }
 }

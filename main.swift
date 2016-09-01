@@ -11,3 +11,7 @@ import Foundation
 var testMatrix: Matrix<Int> = Matrix(rows: 3, columns: 3)
 
 print("\(testMatrix)")
+
+testMatrix[2, 2] = 5
+
+print("\(testMatrix)")

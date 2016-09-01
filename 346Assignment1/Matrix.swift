@@ -8,33 +8,40 @@
 
 import Foundation
 
-class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
-    var rows: Int
-    var columns: Int
-    var transpose: Matrix
+public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
+    public var rows: Int
+    public var columns: Int
+    //public var transpose: Matrix
     var matrix: [[T]]
     
     init(rows: Int, columns: Int) {
         self.rows = rows
         self.columns = columns
-        self.transpose = Matrix.init(rows: columns, columns: rows)
+        //self.transpose = Matrix(rows: columns, columns: rows)
         self.matrix = [[T]](count: rows, repeatedValue:[T](count: columns, repeatedValue:T()))
     }
     
-    subscript(row: Int, column: Int) -> T{
+    public subscript(row: Int, column: Int) -> T{
         get {
             return matrix[row][column];
         }
         set {
-            
+            matrix[row][column] = newValue
         }
     }
     
-    func copy() -> Matrix {
-        return self;
+    public func copy() -> Matrix {
+        return Matrix(rows: 3, columns: 3);
     }
     
-    var description: String{
-        return "MatrixToString"
+    public var description: String{
+        var result = ""
+        for x in 0 ..< matrix.count {
+            for y in 0 ..< matrix[x].count {
+                result += String(matrix[x][y])
+            }
+            result += "\n"
+        }
+        return result
     }
 }
