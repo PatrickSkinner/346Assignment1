@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
+public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, CustomStringConvertible {
     public var rows: Int
     public var columns: Int
     var matrix: [[T]]
@@ -62,4 +62,69 @@ public class Matrix <T: MatrixData>: BasicMatrix, CustomStringConvertible {
         return result
     }
     
+}
+
+public func *<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
+    var multipliedMatrix = Matrix<T>(rows: lhs.rows, columns: rhs.columns)
+    
+    if(lhs.columns != rhs.rows){
+        print("Matrices cannot be multiplied together")
+    }
+    
+    for x in 0...lhs.rows-1 {
+        for y in 0...rhs.columns-1 {
+            for z in 0...rhs.rows-1 {
+                multipliedMatrix[x, y] = multipliedMatrix[x, y] + lhs[x, z] * rhs[z, y]
+            }
+        }
+    }
+    return multipliedMatrix
+}
+
+
+public func +<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
+    var addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    
+    if(lhs.rows != rhs.rows || lhs.columns != rhs.columns){
+        print("Matrices must be the same size")
+    }
+    
+    for x in 0...lhs.rows-1{
+        for y in 0...lhs.columns-1{
+            addMatrix[x, y] = lhs[x, y] + rhs[x, y]
+        }
+    }
+    return addMatrix
+}
+
+
+public func -<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
+    var subMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    
+    if(lhs.rows != rhs.rows || lhs.columns != rhs.columns){
+        print("Matrices must be the same size")
+    }
+    
+    for x in 0...lhs.rows-1{
+        for y in 0...lhs.columns-1{
+            subMatrix[x, y] = lhs[x, y] - rhs[x, y]
+        }
+    }
+    return subMatrix
+}
+
+public func +<T: MatrixData>(lhs: Matrix<T>, rhs:T) -> Matrix<T>{
+    return Matrix<T>(rows: 3, columns: 3)
+}
+
+public func -<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
+    return Matrix<T>(rows: 3, columns: 3)
+}
+
+public func *<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
+    return Matrix<T>(rows: 3, columns: 3)
+}
+
+public func /<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
+    return Matrix<T>(rows: 3, columns: 3)
 }

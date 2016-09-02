@@ -10,7 +10,7 @@
 		221BA4291D6BB3F00050044C /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BA4281D6BB3F00050044C /* Interface.swift */; };
 		221BA42B1D6BB4A80050044C /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BA42A1D6BB4A80050044C /* Matrix.swift */; };
 		22ECD7C21D768FF600C82920 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECD7C11D768FF600C82920 /* Vector.swift */; };
-		96F51C451D768A1F0078D2FD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F51C441D768A1F0078D2FD /* main.swift */; };
+		96E8C0671D791B9D001B5060 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8C0661D791B9D001B5060 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +30,7 @@
 		221BA4281D6BB3F00050044C /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		221BA42A1D6BB4A80050044C /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		22ECD7C11D768FF600C82920 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = ../Vector.swift; sourceTree = "<group>"; };
-		96F51C441D768A1F0078D2FD /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = ../main.swift; sourceTree = "<group>"; };
+		96E8C0661D791B9D001B5060 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 				22ECD7C11D768FF600C82920 /* Vector.swift */,
 				221BA4281D6BB3F00050044C /* Interface.swift */,
 				221BA42A1D6BB4A80050044C /* Matrix.swift */,
-				96F51C441D768A1F0078D2FD /* main.swift */,
+				96E8C0661D791B9D001B5060 /* main.swift */,
 			);
 			path = 346Assignment1;
 			sourceTree = "<group>";
@@ -130,8 +130,8 @@
 			files = (
 				221BA42B1D6BB4A80050044C /* Matrix.swift in Sources */,
 				221BA4291D6BB3F00050044C /* Interface.swift in Sources */,
+				96E8C0671D791B9D001B5060 /* main.swift in Sources */,
 				22ECD7C21D768FF600C82920 /* Vector.swift in Sources */,
-				96F51C451D768A1F0078D2FD /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
