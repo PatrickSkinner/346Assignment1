@@ -47,7 +47,7 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic{
 
 // Vector and Vector operators
 public func *<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> T{
-    var total: T
+    var total: T = T()
     for x in 0...lhs.size-1{
         total = total + (lhs.vector[0, x] * rhs.vector[0, x])
     }
