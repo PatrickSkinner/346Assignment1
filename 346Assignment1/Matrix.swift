@@ -13,6 +13,20 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     public var columns: Int
     var matrix: [[T]]
     
+    public var vectorview: Vector<T>{
+        get{
+            return Vector(size: columns, vector: self)
+        }
+    }
+    
+    public func row(index: Int) -> Vector<T> {
+        return Vector(size: 10)
+    }
+    
+    public func column(index: Int) -> Vector<T> {
+        return Vector(size: 10)
+    }
+    
     public var transpose: Matrix<T>{
         get{
             var temp: [[T]] = [[T]](count: columns, repeatedValue:[T](count: rows, repeatedValue:T()))
