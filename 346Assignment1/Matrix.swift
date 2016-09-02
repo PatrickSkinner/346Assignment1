@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, CustomStringConvertible {
+public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVector, CustomStringConvertible {
     public var rows: Int
     public var columns: Int
     var matrix: [[T]]
@@ -64,6 +64,9 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, CustomString
     
 }
 
+
+
+// Matrix and Matrix operators
 public func *<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
     var multipliedMatrix = Matrix<T>(rows: lhs.rows, columns: rhs.columns)
     
@@ -113,6 +116,7 @@ public func -<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
     return subMatrix
 }
 
+// Matrix and scalar operators
 public func +<T: MatrixData>(lhs: Matrix<T>, rhs:T) -> Matrix<T>{
     var addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     

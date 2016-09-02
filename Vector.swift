@@ -58,7 +58,6 @@ public func +<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> Vector<T>{
 }
 public func -<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> Vector<T>{
     return Vector(size: lhs.size, vector: lhs.vector-rhs.vector)
-
 }
 
 // Vector and scalar operators
