@@ -23,7 +23,11 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic{
     }
     
     public func dot(v: Vector<T>) -> T{
-        return T()
+        var total: T = T()
+        for x in 0...size-1{
+            total = total + (self.vector[0, x] * v.vector[0, x])
+        }
+        return total
     }
     
     public subscript(index: Int) -> T{
@@ -47,46 +51,26 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic{
 
 // Vector and Vector operators
 public func *<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> T{
-    var total: T = T()
-    for x in 0...lhs.size-1{
-        total = total + (lhs.vector[0, x] * rhs.vector[0, x])
-    }
-    return total
+    return lhs.dot(rhs)
 }
 public func +<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> Vector<T>{
-    return Vector(size: 1)
+    return Vector(size: lhs.size, vector: lhs.vector+rhs.vector)
 }
 public func -<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> Vector<T>{
-    return Vector(size: 1)
+    return Vector(size: lhs.size, vector: lhs.vector-rhs.vector)
+
 }
 
 // Vector and scalar operators
 public func +<T: MatrixData>(lhs: Vector<T>, rhs:T) -> Vector<T>{
-    var v = lhs.vector
-    for x in 0...lhs.size-1{
-        v[0, x] = v[0, x]+rhs
-    }
-    return Vector(size: 1, vector: v)
+    return Vector(size: lhs.size, vector: lhs.vector+rhs)
 }
 public func -<T: MatrixData>(lhs: Vector<T>, rhs: T) -> Vector<T>{
-    var v = lhs.vector
-    for x in 0...lhs.size-1{
-        v[0, x] = v[0, x]-rhs
-    }
-    return Vector(size: 1, vector: v)
-
+    return Vector(size: lhs.size, vector: lhs.vector-rhs)
 }
 public func *<T: MatrixData>(lhs: Vector<T>, rhs: T) -> Vector<T>{
-    var v = lhs.vector
-    for x in 0...lhs.size-1{
-        v[0, x] = v[0, x]*rhs
-    }
-    return Vector(size: 1, vector: v)
+    return Vector(size: lhs.size, vector: lhs.vector*rhs)
 }
 public func /<T: MatrixData>(lhs: Vector<T>, rhs: T) -> Vector<T>{
-    var v = lhs.vector
-    for x in 0...lhs.size-1{
-        v[0, x] = v[0, x]/rhs
-    }
-    return Vector(size: 1, vector: v)
+    return Vector(size: lhs.size, vector: lhs.vector/rhs)
 }
