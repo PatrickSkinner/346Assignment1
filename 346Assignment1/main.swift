@@ -79,6 +79,10 @@ var result: Matrix<Int> = leftMatrix-rightMatrix.transpose
 print("\(result)")
 */
 
+
+
+
+/*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
 
 leftMatrix[0, 0] = 1
@@ -95,3 +99,19 @@ print()
 var result: Matrix<Int> = leftMatrix*7
 
 print("\(result)")
+ */
+
+var testVector: Vector<Int> = Vector(size: 5)
+testVector[0] = 1
+testVector[2] = 2
+testVector[4] = 3
+
+print("\(testVector)")
+print("\(testVector*2)")
+print("\(testVector+2)")
+print("\(testVector-2)")
+print("\(testVector/2)")
+print("\(testVector+testVector)")
+print("\(testVector-testVector)")
+print("\(testVector*testVector)")
+print("\(testVector.dot(testVector))")
