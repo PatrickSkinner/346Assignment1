@@ -114,17 +114,45 @@ public func -<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
 }
 
 public func +<T: MatrixData>(lhs: Matrix<T>, rhs:T) -> Matrix<T>{
-    return Matrix<T>(rows: 3, columns: 3)
+    var addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    
+    for x in 0...lhs.rows-1{
+        for y in 0...lhs.columns-1{
+            addMatrix[x, y] = lhs[x, y] + rhs
+        }
+    }
+    return addMatrix
 }
 
 public func -<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
-    return Matrix<T>(rows: 3, columns: 3)
+    var subMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    
+    for x in 0...lhs.rows-1{
+        for y in 0...lhs.columns-1{
+            subMatrix[x, y] = lhs[x, y] - rhs
+        }
+    }
+    return subMatrix
 }
 
 public func *<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
-    return Matrix<T>(rows: 3, columns: 3)
+    var multMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    
+    for x in 0...lhs.rows-1{
+        for y in 0...lhs.columns-1{
+            multMatrix[x, y] = lhs[x, y] * rhs
+        }
+    }
+    return multMatrix
 }
 
 public func /<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
-    return Matrix<T>(rows: 3, columns: 3)
+    var divMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    
+    for x in 0...lhs.rows-1{
+        for y in 0...lhs.columns-1{
+            divMatrix[x, y] = lhs[x, y] / rhs
+        }
+    }
+    return divMatrix
 }

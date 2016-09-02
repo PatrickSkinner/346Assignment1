@@ -51,7 +51,7 @@ import Foundation
  }
  */
 
-
+/*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
 var rightMatrix: Matrix<Int> = Matrix(rows: 3, columns: 2)
 
@@ -75,5 +75,23 @@ print("\(rightMatrix.transpose)")
 print()
 
 var result: Matrix<Int> = leftMatrix-rightMatrix.transpose
+
+print("\(result)")
+*/
+
+var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
+
+leftMatrix[0, 0] = 1
+leftMatrix[0, 1] = 2
+leftMatrix[0, 2] = 3
+leftMatrix[1, 0] = 4
+leftMatrix[1, 1] = 5
+leftMatrix[1, 2] = 6
+
+
+print("\(leftMatrix)")
+print()
+
+var result: Matrix<Int> = leftMatrix*7
 
 print("\(result)")
