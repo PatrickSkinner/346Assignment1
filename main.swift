@@ -31,6 +31,7 @@ testVector[2] = 2
 testVector[4] = 3
 
 print("\(testVector)")
+print("\(testVector*2)")
 
 var longMatrix: Matrix<Int> = Matrix(rows: 1, columns: 5)
 
