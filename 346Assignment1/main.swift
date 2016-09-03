@@ -101,6 +101,7 @@ var result: Matrix<Int> = leftMatrix*7
 print("\(result)")
  */
 
+/*
 var testVector: Vector<Int> = Vector(size: 5)
 testVector[0] = 1
 testVector[2] = 2
@@ -115,3 +116,4 @@ print("\(testVector+testVector)")
 print("\(testVector-testVector)")
 print("\(testVector*testVector)")
 print("\(testVector.dot(testVector))")
+*/

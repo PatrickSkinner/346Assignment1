@@ -22,6 +22,12 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic{
         self.vector = vector
     }
     
+    
+    init(size: Int, matrix: [[T]]){
+        self.size = size
+        self.vector = Matrix(rows: 1, columns: size, matrix: matrix)
+    }
+    
     public func dot(v: Vector<T>) -> T{
         var total: T = T()
         for x in 0...size-1{
