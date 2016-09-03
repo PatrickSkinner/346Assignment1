@@ -45,12 +45,20 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     }
     
     init(rows: Int, columns: Int) {
+        
+        precondition(rows > 0 , "Rows must be greater than 0")
+        precondition(columns > 0 , "Columns must be greater than 0")
+        
         self.rows = rows
         self.columns = columns
         self.matrix = [[T]](count: rows, repeatedValue:[T](count: columns, repeatedValue:T()))
     }
     
     init(rows: Int, columns: Int, matrix: [[T]]){
+        
+        precondition(rows > 0 , "Rows must be greater than 0")
+        precondition(columns > 0 , "Columns must be greater than 0")
+        
         self.rows = rows
         self.columns = columns
         self.matrix = matrix
@@ -59,15 +67,19 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     
     public subscript(row: Int, column: Int) -> T{
         get {
+            precondition(row <= self.rows, "Row Value out of bounds")
+            precondition(column <= self.columns, "Column value out of bounds")
             return matrix[row][column];
         }
         set {
+            precondition(row <= self.rows, "Row Value out of bounds")
+            precondition(column <= self.columns, "Column value out of bounds")
             matrix[row][column] = newValue
         }
     }
     
     public func copy() -> Matrix {
-        return Matrix(rows: 3, columns: 3, matrix: matrix);
+        return Matrix(rows: self.rows, columns: self.columns, matrix: matrix);
     }
     
     public var description: String{
@@ -89,9 +101,7 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
 public func *<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
     var multipliedMatrix = Matrix<T>(rows: lhs.rows, columns: rhs.columns)
     
-    if(lhs.columns != rhs.rows){
-        print("Matrices cannot be multiplied together")
-    }
+    precondition(lhs.columns != rhs.rows, "First Matrix columns must equal second Matrix rows")
     
     for x in 0...lhs.rows-1 {
         for y in 0...rhs.columns-1 {
@@ -107,9 +117,7 @@ public func *<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
 public func +<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
     var addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
-    if(lhs.rows != rhs.rows || lhs.columns != rhs.columns){
-        print("Matrices must be the same size")
-    }
+    precondition(lhs.rows != rhs.rows || lhs.columns != rhs.columns, "Matrices must be the same size")
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
@@ -123,9 +131,7 @@ public func +<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
 public func -<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
     var subMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
-    if(lhs.rows != rhs.rows || lhs.columns != rhs.columns){
-        print("Matrices must be the same size")
-    }
+    precondition(lhs.rows != rhs.rows || lhs.columns != rhs.columns, "Matrices must be the same size")
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
