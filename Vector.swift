@@ -8,27 +8,45 @@
 
 import Foundation
 
-public class Vector<T: MatrixData>: BasicVector, VectorArithmetic{
+public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatrix{
     public var size: Int
-    var vector: Matrix<T>
+    private var vector: Matrix<T>
+    private var isHorizontal: Bool
     
+    public var matrixview: Matrix<T>{
+        get{
+            if(isHorizontal){
+                return Matrix(rows: 1, columns: size, matrix: vector.matrix)
+            } else {
+                return Matrix(rows: size, columns: 1, matrix: vector.matrix)
+            }
+            
+        }
+    }
     init(size: Int) {
         precondition(size > 0 , "Size must be greater than 0")
         self.size = size
         vector = Matrix.init(rows: 1, columns: size)
+        self.isHorizontal = true
     }
     
     init(size: Int, vector: Matrix<T>) {
         precondition(size > 0 , "Size must be greater than 0")
         self.size = size
         self.vector = vector
+        if(vector.rows > 1 && vector.columns == 1){
+            self.isHorizontal = false
+        } else {
+            self.isHorizontal = true
+        }
+        
     }
     
-    
-    init(size: Int, matrix: [[T]]){
+    init(size: Int, matrix: [[T]], isHorizontal: Bool){
         precondition(size > 0 , "Size must be greater than 0")
         self.size = size
         self.vector = Matrix(rows: 1, columns: size, matrix: matrix)
+        self.isHorizontal = isHorizontal
     }
     
     public func dot(v: Vector<T>) -> T{

@@ -20,7 +20,7 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     }
     
     public func row(index: Int) -> Vector<T> {
-        return Vector(size: columns, matrix: [matrix[index]]);
+        return Vector(size: columns, matrix: [matrix[index]], isHorizontal: true);
     }
     
     public func column(index: Int) -> Vector<T> {
@@ -29,7 +29,7 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
         for x in 0...rows-1{
             vector[x] = matrix[x][index];
         }
-        return Vector(size: columns, matrix: [vector]);
+        return Vector(size: columns, matrix: [vector], isHorizontal: false);
     }
     
     public var transpose: Matrix<T>{
