@@ -8,8 +8,8 @@
 
 import Foundation
 
-
- var testMatrix: Matrix<Int> = Matrix(rows: 3, columns: -3)
+/*
+var testMatrix: Matrix<Int> = Matrix(rows: 3, columns: -3)
 var testMatrix2: Matrix<Int> = Matrix(rows: 4, columns: 3)
 
  testMatrix+testMatrix
@@ -17,32 +17,13 @@ var testMatrix2: Matrix<Int> = Matrix(rows: 4, columns: 3)
  
  print("\(testMatrix)")
  print("\(testMatrix.transpose)")
+*/
 
-/*
- var testVector: Vector<Int> = Vector(size: 5)
- testVector[0] = 1
- testVector[2] = 2
- testVector[4] = 3
- 
- print("\(testVector)")
- print("\(testVector*2)")
- 
- var longMatrix: Matrix<Int> = Matrix(rows: 1, columns: 5)
- 
- print("\(longMatrix)")
- 
- print("\(longMatrix.transpose)")
- 
- withUnsafePointer(&testMatrix) {
- print("Original address: \($0)")
- }
- withUnsafePointer(&testMatrix2) {
- print("Copy address: \($0)")
- }
- withUnsafePointer(&testMatrix3) {
- print("Hard Copy address: \($0)")
- }
- */
+var testVector: Vector<Int> = Vector(size: 5)
+var testVector2: Vector<Int> = Vector(size: 3)
+
+testVector*testVector2
+
 
 /*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
