@@ -20,11 +20,16 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     }
     
     public func row(index: Int) -> Vector<T> {
-        return Vector(size: 10)
+        return Vector(size: columns, matrix: [matrix[index]]);
     }
     
     public func column(index: Int) -> Vector<T> {
-        return Vector(size: 10)
+        var vector: [T]
+        vector = [T](count: columns, repeatedValue:T())
+        for x in 0...rows-1{
+            vector[x] = matrix[x][index];
+        }
+        return Vector(size: columns, matrix: [vector]);
     }
     
     public var transpose: Matrix<T>{

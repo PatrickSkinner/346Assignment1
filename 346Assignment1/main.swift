@@ -117,3 +117,19 @@ print("\(testVector-testVector)")
 print("\(testVector*testVector)")
 print("\(testVector.dot(testVector))")
 */
+
+var testMatrix: Matrix<Int> = Matrix(rows: 3, columns: 3)
+
+testMatrix[0, 0] = 1
+testMatrix[0, 1] = 2
+testMatrix[0, 2] = 3
+testMatrix[1, 0] = 4
+testMatrix[1, 1] = 5
+testMatrix[1, 2] = 6
+testMatrix[2, 0] = 7
+testMatrix[2, 1] = 8
+testMatrix[2, 2] = 9
+
+print("\(testMatrix)")
+print("\(testMatrix.row(1))")
+print("\(testMatrix.column(1))")
