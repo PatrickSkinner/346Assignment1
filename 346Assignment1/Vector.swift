@@ -13,16 +13,6 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     private var vector: Matrix<T>
     private var isHorizontal: Bool
     
-    public var matrixview: Matrix<T>{
-        get{
-            if(isHorizontal){
-                return Matrix(rows: 1, columns: size, matrix: vector.matrix)
-            } else {
-                return Matrix(rows: size, columns: 1, matrix: vector.matrix)
-            }
-            
-        }
-    }
     init(size: Int) {
         precondition(size > 0 , "Size must be greater than 0")
         self.size = size
@@ -79,6 +69,16 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
         return vector.description
     }
     
+    public var matrixview: Matrix<T>{
+        get{
+            if(isHorizontal){
+                return Matrix(rows: 1, columns: size, matrix: vector.matrix)
+            } else {
+                return Matrix(rows: size, columns: 1, matrix: vector.matrix)
+            }
+            
+        }
+    }
 }
 
 // Vector and Vector operators

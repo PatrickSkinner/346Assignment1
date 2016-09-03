@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		221BA4291D6BB3F00050044C /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BA4281D6BB3F00050044C /* Interface.swift */; };
 		221BA42B1D6BB4A80050044C /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BA42A1D6BB4A80050044C /* Matrix.swift */; };
-		22ECD7C21D768FF600C82920 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECD7C11D768FF600C82920 /* Vector.swift */; };
+		22D219EB1D7B92ED001E27EE /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D219EA1D7B92ED001E27EE /* Vector.swift */; };
 		96E8C0671D791B9D001B5060 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8C0661D791B9D001B5060 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 		221BA41E1D6BB2FB0050044C /* 346Assignment1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 346Assignment1; sourceTree = BUILT_PRODUCTS_DIR; };
 		221BA4281D6BB3F00050044C /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		221BA42A1D6BB4A80050044C /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		22ECD7C11D768FF600C82920 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = ../Vector.swift; sourceTree = "<group>"; };
+		22D219EA1D7B92ED001E27EE /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		96E8C0661D791B9D001B5060 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +63,7 @@
 		221BA4201D6BB2FB0050044C /* 346Assignment1 */ = {
 			isa = PBXGroup;
 			children = (
-				22ECD7C11D768FF600C82920 /* Vector.swift */,
+				22D219EA1D7B92ED001E27EE /* Vector.swift */,
 				221BA4281D6BB3F00050044C /* Interface.swift */,
 				221BA42A1D6BB4A80050044C /* Matrix.swift */,
 				96E8C0661D791B9D001B5060 /* main.swift */,
@@ -130,8 +130,8 @@
 			files = (
 				221BA42B1D6BB4A80050044C /* Matrix.swift in Sources */,
 				221BA4291D6BB3F00050044C /* Interface.swift in Sources */,
+				22D219EB1D7B92ED001E27EE /* Vector.swift in Sources */,
 				96E8C0671D791B9D001B5060 /* main.swift in Sources */,
-				22ECD7C21D768FF600C82920 /* Vector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,37 +13,6 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     public var columns: Int
     var matrix: [[T]]
     
-    public var vectorview: Vector<T>{
-        get{
-            return Vector(size: columns, vector: self)
-        }
-    }
-    
-    public func row(index: Int) -> Vector<T> {
-        return Vector(size: columns, matrix: [matrix[index]], isHorizontal: true);
-    }
-    
-    public func column(index: Int) -> Vector<T> {
-        var vector: [T]
-        vector = [T](count: columns, repeatedValue:T())
-        for x in 0...rows-1{
-            vector[x] = matrix[x][index];
-        }
-        return Vector(size: columns, matrix: [vector], isHorizontal: false);
-    }
-    
-    public var transpose: Matrix<T>{
-        get{
-            var temp: [[T]] = [[T]](count: columns, repeatedValue:[T](count: rows, repeatedValue:T()))
-            for x in 0...rows-1 {
-                for y in 0...columns-1 {
-                    temp[y][x] = matrix[x][y]
-                }
-            }
-            return Matrix(rows: columns, columns: rows, matrix: temp)
-        }
-    }
-    
     init(rows: Int, columns: Int) {
         
         precondition(rows > 0 , "Rows must be greater than 0")
@@ -93,6 +62,36 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
         return result
     }
     
+    public var vectorview: Vector<T>{
+        get{
+            return Vector(size: columns, vector: self)
+        }
+    }
+    
+    public func row(index: Int) -> Vector<T> {
+        return Vector(size: columns, matrix: [matrix[index]], isHorizontal: true);
+    }
+    
+    public func column(index: Int) -> Vector<T> {
+        var vector: [T]
+        vector = [T](count: columns, repeatedValue:T())
+        for x in 0...rows-1{
+            vector[x] = matrix[x][index];
+        }
+        return Vector(size: columns, matrix: [vector], isHorizontal: false);
+    }
+    
+    public var transpose: Matrix<T>{
+        get{
+            var temp: [[T]] = [[T]](count: columns, repeatedValue:[T](count: rows, repeatedValue:T()))
+            for x in 0...rows-1 {
+                for y in 0...columns-1 {
+                    temp[y][x] = matrix[x][y]
+                }
+            }
+            return Matrix(rows: columns, columns: rows, matrix: temp)
+        }
+    }
 }
 
 
