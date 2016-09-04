@@ -14,8 +14,8 @@ final class Complex : MatrixData, CustomStringConvertible {
     
     // STORED PROPERTIES
     
-    var real: Float;   // Real part of the number
-    var imag: Float;   // Imaginary part of the number
+    private var real: Float;   // Real part of the number
+    private var imag: Float;   // Imaginary part of the number
     
     // COMPUTED PROPERTIES
     
@@ -77,7 +77,7 @@ final class Complex : MatrixData, CustomStringConvertible {
      
      - returns: The result of c1 + c2.
      */
-    static func add(c1: Complex, to c2: Complex) -> Complex {
+    private static func add(c1: Complex, to c2: Complex) -> Complex {
         return Complex(real: (c1.real + c2.real), imag: (c1.imag + c2.imag))
     }
     
@@ -89,7 +89,7 @@ final class Complex : MatrixData, CustomStringConvertible {
      
      - returns: The result of c2 - c1.
      */
-    static func subtract(c1: Complex, from c2: Complex) -> Complex {
+    private static func subtract(c1: Complex, from c2: Complex) -> Complex {
         return Complex(real: (c1.real - c2.real), imag: (c1.imag - c2.imag))
     }
     
@@ -101,7 +101,7 @@ final class Complex : MatrixData, CustomStringConvertible {
      
      - returns: The result of c1*c2.
      */
-    static func multiply(c1: Complex, by c2: Complex) -> Complex {
+    private static func multiply(c1: Complex, by c2: Complex) -> Complex {
         return Complex(real: ((c1.real * c2.real) - (c1.imag * c2.imag)),
                        imag: ((c1.real * c2.real) + (c1.imag * c2.imag)))
     }
@@ -114,7 +114,7 @@ final class Complex : MatrixData, CustomStringConvertible {
      
      - returns: The result of c1/c2.
      */
-    static func divide(c1: Complex, by c2: Complex) -> Complex {
+    private static func divide(c1: Complex, by c2: Complex) -> Complex {
         return Complex(real: (((c1.real * c2.real) + (c1.imag * c2.imag)) / c2.magnitude),
                        imag: (((c1.real * c2.real) - (c1.imag * c2.imag)) / c2.magnitude))
     }
