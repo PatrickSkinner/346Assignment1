@@ -184,6 +184,11 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
 
-    
+    func testAddresses(input1: Matrix<T>, input2: Matrix<T>) -> Bool{
+        if(input1 === input2){
+            return false
+        }
+        return true
+    }
     
 }
