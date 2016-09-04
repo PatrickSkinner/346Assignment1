@@ -34,7 +34,7 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
     }
     
     func testSubscriptSet(x: Int, y: Int, value: T, matrix: Matrix<T>) -> Bool{
-        let testedMatrix = matrix
+        let testedMatrix = matrix.copy()
         testedMatrix[x, y] = value
         if(testedMatrix[x, y] == value){
             return true

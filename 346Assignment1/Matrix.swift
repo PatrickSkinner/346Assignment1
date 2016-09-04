@@ -37,13 +37,13 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     
     public subscript(row: Int, column: Int) -> T{
         get {
-            precondition(row <= self.rows, "Row Value out of bounds")
-            precondition(column <= self.columns, "Column value out of bounds")
+            precondition(row < self.rows, "Row Value out of bounds")
+            precondition(column < self.columns, "Column value out of bounds")
             return matrix[row][column];
         }
         set {
-            precondition(row <= self.rows, "Row Value out of bounds")
-            precondition(column <= self.columns, "Column value out of bounds")
+            precondition(row < self.rows, "Row Value out of bounds")
+            precondition(column < self.columns, "Column value out of bounds")
             matrix[row][column] = newValue
         }
     }

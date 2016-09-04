@@ -20,6 +20,18 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
         self.isHorizontal = true
     }
     
+    init(size: Int, isHorizontal: Bool) {
+        precondition(size > 0 , "Size must be greater than 0")
+        self.size = size
+        if(isHorizontal){
+            vector = Matrix.init(rows: 1, columns: size)
+        } else {
+            vector = Matrix.init(rows: size, columns: 1)
+        }
+        self.isHorizontal = isHorizontal
+        
+    }
+    
     init(size: Int, vector: Matrix<T>) {
         precondition(size > 0 , "Size must be greater than 0")
         self.size = size
@@ -35,7 +47,11 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     init(size: Int, matrix: [[T]], isHorizontal: Bool){
         precondition(size > 0 , "Size must be greater than 0")
         self.size = size
-        self.vector = Matrix(rows: 1, columns: size, matrix: matrix)
+        if(isHorizontal){
+            vector = Matrix.init(rows: 1, columns: size, matrix: matrix)
+        } else {
+            vector = Matrix.init(rows: size, columns: 1, matrix: matrix)
+        }
         self.isHorizontal = isHorizontal
     }
     
@@ -62,8 +78,9 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
             precondition(index < self.size, "Index value out of bounds")
             if(isHorizontal){
                 vector[0,index] = newValue;
+            } else {
+                vector[index,0] = newValue;
             }
-            vector[index,0] = newValue;
         }
     }
     

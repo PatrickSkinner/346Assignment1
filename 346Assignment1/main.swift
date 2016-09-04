@@ -45,6 +45,17 @@ testMatrixVectorVer[0, 0] = 1
 testMatrixVectorVer[1, 0] = 2
 testMatrixVectorVer[2, 0] = 3
 
+var testVectorRow = Vector<Int>(size: 3)
+var testVectorCol = Vector<Int>(size: 3, isHorizontal: false)
+
+testVectorRow[0] = 1
+testVectorRow[1] = 2
+testVectorRow[2] = 3
+
+testVectorCol[0] = 1
+testVectorCol[1] = 4
+testVectorCol[2] = 7
+
 
 print("\(tester.testInitialiser(5, columns: 5))")
 print("\(tester.testInitialiser(3, columns: 3, matrix: testMatrix))")
@@ -56,4 +67,7 @@ print("\(tester.testVectorView(testMatrixVectorHor))")
 print("\(tester.testVectorView(testMatrixVectorVer))")
 
 print("\(tester.testTranspose(testMatrixClass, desiredResult: testMatrixClassTran))")
+
+print("\(tester.testRow(testMatrixClass, vector: testVectorRow, index: 0))")
+print("\(tester.testColumn(testMatrixClass, vector: testVectorCol, index: 0))")
 
