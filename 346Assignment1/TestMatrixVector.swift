@@ -33,8 +33,15 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
-    func testSubscript(x: Int, y: Int, value: T, matrix: Matrix<T>) -> Bool{
+    func testSubscriptSet(x: Int, y: Int, value: T, matrix: Matrix<T>) -> Bool{
         matrix[x, y] = value
+        if(matrix[x, y] == value){
+            return true
+        }
+        return false
+    }
+    
+    func testSubscriptGet(x: Int, y: Int, value: T, matrix: Matrix<T>) -> Bool{
         if(matrix[x, y] == value){
             return true
         }
@@ -60,15 +67,48 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
-    func testTranspose(input: Matrix<T>, output: Matrix<T>) -> Bool{
+    func testTranspose(input: Matrix<T>, desiredResult: Matrix<T>) -> Bool{
         let transposed: Matrix<T> = input.transpose
-        for x in 0...output.rows-1 {
-            for y in 0...output.columns-1 {
-                if(transposed[x,y] != output[x,y]){
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(transposed[x,y] != desiredResult[x,y]){
                     return false
                 }
             }
         }
         return true
     }
+    
+    func testRow(matrix: Matrix<T>, vector: Vector<T>, index: Int) -> Bool{
+        let row: Vector = matrix.row(index)
+        for x in 0...vector.size-1 {
+            if(row[x] != vector[x]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func testColumn(matrix: Matrix<T>, vector: Vector<T>, index: Int) -> Bool{
+        let row: Vector = matrix.column(index)
+        for x in 0...vector.size-1 {
+            if(row[x] != vector[x]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func testAddition(input1: Matrix<T>, input2: Matrix<T>, desiredResult: Matrix<T>) -> Bool{
+        let result: Matrix<T> = input1+input2
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(result[x,y] != desiredResult[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
 }
