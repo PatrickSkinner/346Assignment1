@@ -34,8 +34,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
     }
     
     func testSubscriptSet(x: Int, y: Int, value: T, matrix: Matrix<T>) -> Bool{
-        matrix[x, y] = value
-        if(matrix[x, y] == value){
+        let testedMatrix = matrix
+        testedMatrix[x, y] = value
+        if(testedMatrix[x, y] == value){
             return true
         }
         return false
@@ -110,5 +111,79 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         }
         return true
     }
+    
+    func testSubtraction(input1: Matrix<T>, input2: Matrix<T>, desiredResult: Matrix<T>) -> Bool{
+        let result: Matrix<T> = input1-input2
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(result[x,y] != desiredResult[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func testMultiplication(input1: Matrix<T>, input2: Matrix<T>, desiredResult: Matrix<T>) -> Bool{
+        let result: Matrix<T> = input1*input2
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(result[x,y] != desiredResult[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func testScalarAddition(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
+        let result: Matrix<T> = input1+input2
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(result[x,y] != desiredResult[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func testScalarSubtraction(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
+        let result: Matrix<T> = input1-input2
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(result[x,y] != desiredResult[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func testScalarMultiplication(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
+        let result: Matrix<T> = input1*input2
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(result[x,y] != desiredResult[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func testScalarDivision(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
+        let result: Matrix<T> = input1/input2
+        for x in 0...desiredResult.rows-1 {
+            for y in 0...desiredResult.columns-1 {
+                if(result[x,y] != desiredResult[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+    
     
 }
