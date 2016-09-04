@@ -11,7 +11,7 @@ import Foundation
 public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatrix{
     public var size: Int
     private var vector: Matrix<T>
-    private var isHorizontal: Bool
+    public var isHorizontal: Bool
     
     init(size: Int) {
         precondition(size > 0 , "Size must be greater than 0")
@@ -87,7 +87,7 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     }
 }
 
-// Vector and Vector operators
+// Vector and Vector operatorss
 public func *<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> T{
     
     precondition(lhs.size == rhs.size , "Vectors must be the same size")

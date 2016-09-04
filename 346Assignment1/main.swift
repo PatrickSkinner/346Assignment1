@@ -26,7 +26,7 @@ var testVector2: Vector<Int> = Vector(size: 3)
 testVector*testVector2
 */
 
-
+/*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 2)
 var rightMatrix: Matrix<Int> = Matrix(rows: 2, columns: 2)
 
@@ -48,10 +48,18 @@ print()
 var result: Matrix<Int> = leftMatrix+rightMatrix
 
 print("\(result)")
+*/
 
 
+var fractionOne: Fraction = Fraction(num: 2, den: 3)
+var fractionTwo: Fraction = Fraction(num: 2, den: 4)
 
+print("\(fractionOne == fractionTwo)")
 
+var complexOne: Complex = Complex(real: 2, imag: 3)
+var complexTwo: Complex = Complex(real: 1, imag: 3)
+
+print("\(complexOne == complexTwo)")
 
 /*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
@@ -102,5 +110,19 @@ testMatrix[2, 0] = 7
 testMatrix[2, 1] = 8
 testMatrix[2, 2] = 9
 
-print("\(testMatrix/0)")
-*/
+print("\(testMatrix)")
+print("\(testMatrix.row(1))")
+print("\(testMatrix.column(1))")
+testMatrix.column(1)[1] = 9
+
+print("\(testMatrix)")
+print("\(testMatrix.row(1))")
+print("\(testMatrix.column(1))")
+ */
+
+/*
+var testMatrix: Matrix<Fraction> = Matrix(rows: 3, columns: 3)
+testMatrix[1, 1] = Fraction(num: 5,den: 2)
+print("\(testMatrix)")
+ 
+ */

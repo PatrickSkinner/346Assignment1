@@ -12,7 +12,7 @@ import Foundation
  Represents a number as a fraction of two integers
  
  */
-final class Fraction: MatrixData, CustomStringConvertible {
+final class Fraction: MatrixData, Equatable, CustomStringConvertible {
     
     // STORED PROPERTIES
     
@@ -262,6 +262,17 @@ final class Fraction: MatrixData, CustomStringConvertible {
         return Fraction(num: self.num, den: self.den*x)
     }
     
+}
+
+/**
+ == between two Fractions
+ */
+func ==(f1: Fraction, f2: Fraction) -> Bool {
+    if((f1.num == f2.num) && (f1.den == f2.den)){
+        return true
+    } else {
+        return false
+    }
 }
 
 /**

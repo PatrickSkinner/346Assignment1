@@ -10,7 +10,7 @@
  Represents a complex number
  
  */
-final class Complex : MatrixData, CustomStringConvertible {
+final class Complex : MatrixData, Equatable, CustomStringConvertible {
     
     // STORED PROPERTIES
     
@@ -117,6 +117,17 @@ final class Complex : MatrixData, CustomStringConvertible {
     private static func divide(c1: Complex, by c2: Complex) -> Complex {
         return Complex(real: (((c1.real * c2.real) + (c1.imag * c2.imag)) / c2.magnitude),
                        imag: (((c1.real * c2.real) - (c1.imag * c2.imag)) / c2.magnitude))
+    }
+}
+
+/**
+ == operator between two Complex numbers
+ */
+func ==(c1: Complex, c2: Complex) -> Bool {
+    if((c1.real == c2.real) && (c1.imag == c2.imag)){
+        return true
+    } else {
+        return false
     }
 }
 
