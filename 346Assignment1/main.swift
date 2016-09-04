@@ -26,33 +26,29 @@ var testVector2: Vector<Int> = Vector(size: 3)
 testVector*testVector2
 */
 
-/*
-var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
-var rightMatrix: Matrix<Int> = Matrix(rows: 3, columns: 2)
+
+var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 2)
+var rightMatrix: Matrix<Int> = Matrix(rows: 2, columns: 2)
 
 leftMatrix[0, 0] = 1
 leftMatrix[0, 1] = 2
-leftMatrix[0, 2] = 3
 leftMatrix[1, 0] = 4
 leftMatrix[1, 1] = 5
-leftMatrix[1, 2] = 6
 
 rightMatrix[0, 0] = 7
 rightMatrix[0, 1] = 8
-rightMatrix[1, 0] = 9
-rightMatrix[1, 1] = 10
-rightMatrix[2, 0] = 11
-rightMatrix[2, 1] = 12
+rightMatrix[1, 0] = 10
+rightMatrix[1, 1] = 11
 
 print("\(leftMatrix)")
 print()
-print("\(rightMatrix.transpose)")
+print("\(rightMatrix)")
 print()
 
-var result: Matrix<Int> = leftMatrix-rightMatrix.transpose
+var result: Matrix<Int> = leftMatrix+rightMatrix
 
 print("\(result)")
-*/
+
 
 
 
@@ -93,7 +89,7 @@ print("\(testVector*testVector)")
 print("\(testVector.dot(testVector))")
 */
 
-
+/*
 var testMatrix: Matrix<Int> = Matrix(rows: 3, columns: 3)
 
 testMatrix[0, 0] = 1
@@ -106,11 +102,5 @@ testMatrix[2, 0] = 7
 testMatrix[2, 1] = 8
 testMatrix[2, 2] = 9
 
-print("\(testMatrix)")
-print("\(testMatrix.row(1))")
-print("\(testMatrix.column(1))")
-testMatrix.column(1)[1] = 9
-
-print("\(testMatrix)")
-print("\(testMatrix.row(1))")
-print("\(testMatrix.column(1))")
+print("\(testMatrix/0)")
+*/

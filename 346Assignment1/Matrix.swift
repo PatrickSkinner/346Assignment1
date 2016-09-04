@@ -99,9 +99,9 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
 
 // Matrix and Matrix operators
 public func *<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
-    var multipliedMatrix = Matrix<T>(rows: lhs.rows, columns: rhs.columns)
+    let multipliedMatrix = Matrix<T>(rows: lhs.rows, columns: rhs.columns)
     
-    precondition(lhs.columns != rhs.rows, "First Matrix columns must equal second Matrix rows")
+    precondition(lhs.columns == rhs.rows, "First Matrix columns must equal second Matrix rows")
     
     for x in 0...lhs.rows-1 {
         for y in 0...rhs.columns-1 {
@@ -115,9 +115,9 @@ public func *<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
 
 
 public func +<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
-    var addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    let addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
-    precondition(lhs.rows != rhs.rows || lhs.columns != rhs.columns, "Matrices must be the same size")
+    precondition(lhs.rows == rhs.rows || lhs.columns == rhs.columns, "Matrices must be the same size")
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
@@ -129,9 +129,9 @@ public func +<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
 
 
 public func -<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
-    var subMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    let subMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
-    precondition(lhs.rows != rhs.rows || lhs.columns != rhs.columns, "Matrices must be the same size")
+    precondition(lhs.rows == rhs.rows || lhs.columns == rhs.columns, "Matrices must be the same size")
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
@@ -145,7 +145,7 @@ public func -<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
 
 // Matrix and scalar operators
 public func +<T: MatrixData>(lhs: Matrix<T>, rhs:T) -> Matrix<T>{
-    var addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    let addMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
@@ -156,7 +156,7 @@ public func +<T: MatrixData>(lhs: Matrix<T>, rhs:T) -> Matrix<T>{
 }
 
 public func -<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
-    var subMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    let subMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
@@ -167,7 +167,7 @@ public func -<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
 }
 
 public func *<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
-    var multMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    let multMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
@@ -178,7 +178,7 @@ public func *<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
 }
 
 public func /<T: MatrixData>(lhs: Matrix<T>, rhs: T) -> Matrix<T>{
-    var divMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
+    let divMatrix = Matrix<T>(rows: lhs.rows, columns: lhs.columns)
     
     for x in 0...lhs.rows-1{
         for y in 0...lhs.columns-1{
