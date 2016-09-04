@@ -12,7 +12,7 @@ import Foundation
  Represents a number as a fraction of two integers
  
  */
-class Fraction: CustomStringConvertible {
+final class Fraction: MatrixData, CustomStringConvertible {
     
     // STORED PROPERTIES
     
@@ -60,7 +60,7 @@ class Fraction: CustomStringConvertible {
      
      Numerator gets set to 0 and denominator gets set to 1
      */
-    convenience init() {
+    convenience required init() {
         self.init(num: 0, den: 1);
     }
     
@@ -175,7 +175,7 @@ class Fraction: CustomStringConvertible {
      
      - returns: The result of f1 + f2.
      */
-    static func add(f1:Fraction, to f2: Fraction) -> Fraction {
+    private static func add(f1:Fraction, to f2: Fraction) -> Fraction {
         return Fraction(num: f1.num*f2.den + f1.den*f2.num,
                         den: f1.den*f2.den)
     }
@@ -188,7 +188,7 @@ class Fraction: CustomStringConvertible {
      
      - returns: The result of f2 - f1.
      */
-    static func subtract(f1: Fraction, from f2: Fraction) -> Fraction {
+    private static func subtract(f1: Fraction, from f2: Fraction) -> Fraction {
         return f2.subtract(f1);
     }
     
@@ -200,7 +200,7 @@ class Fraction: CustomStringConvertible {
      
      - returns: The result of f1*f2.
      */
-    static func multiply(f1: Fraction, by f2: Fraction) -> Fraction {
+    private static func multiply(f1: Fraction, by f2: Fraction) -> Fraction {
         return f1.multiply(f2)
     }
     
@@ -212,7 +212,7 @@ class Fraction: CustomStringConvertible {
      
      - returns: The result of f1/f2.
      */
-    static func divide(f1: Fraction, by f2: Fraction) -> Fraction {
+    private static func divide(f1: Fraction, by f2: Fraction) -> Fraction {
         return f1.divide(f2)
     }
     
