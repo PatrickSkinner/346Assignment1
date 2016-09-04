@@ -21,7 +21,18 @@ testMatrix[2][0] = 7
 testMatrix[2][1] = 8
 testMatrix[2][2] = 9
 
-var testMatrixClass = Matrix(rows: 3, columns: 3, matrix: testMatrix)
+var testMatrixClass = Matrix<Int>(rows: 3, columns: 3, matrix: testMatrix)
+var testMatrixClassTran = Matrix<Int>(rows: 3, columns: 3)
+
+testMatrixClassTran[0, 0] = 1
+testMatrixClassTran[0, 1] = 4
+testMatrixClassTran[0, 2] = 7
+testMatrixClassTran[1, 0] = 2
+testMatrixClassTran[1, 1] = 5
+testMatrixClassTran[1, 2] = 8
+testMatrixClassTran[2, 0] = 3
+testMatrixClassTran[2, 1] = 6
+testMatrixClassTran[2, 2] = 9
 
 var testMatrixVectorHor = Matrix<Int>(rows: 1, columns: 3)
 var testMatrixVectorVer = Matrix<Int>(rows: 3, columns: 1)
@@ -38,7 +49,11 @@ testMatrixVectorVer[2, 0] = 3
 print("\(tester.testInitialiser(5, columns: 5))")
 print("\(tester.testInitialiser(3, columns: 3, matrix: testMatrix))")
 
-//print("\(tester.testSubscriptSet(1, y: 1, value: 15, matrix: testMatrixClass))")
+print("\(tester.testSubscriptSet(1, y: 1, value: 15, matrix: testMatrixClass))")
+print("\(tester.testSubscriptGet(1, y: 1, value: 5, matrix: testMatrixClass))")
 
 print("\(tester.testVectorView(testMatrixVectorHor))")
 print("\(tester.testVectorView(testMatrixVectorVer))")
+
+print("\(tester.testTranspose(testMatrixClass, desiredResult: testMatrixClassTran))")
+
