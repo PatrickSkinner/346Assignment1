@@ -19,11 +19,12 @@ var testMatrix2: Matrix<Int> = Matrix(rows: 4, columns: 3)
  print("\(testMatrix.transpose)")
 */
 
+/*
 var testVector: Vector<Int> = Vector(size: 5)
 var testVector2: Vector<Int> = Vector(size: 3)
 
 testVector*testVector2
-
+*/
 
 /*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
@@ -91,7 +92,8 @@ print("\(testVector-testVector)")
 print("\(testVector*testVector)")
 print("\(testVector.dot(testVector))")
 */
-/*
+
+
 var testMatrix: Matrix<Int> = Matrix(rows: 3, columns: 3)
 
 testMatrix[0, 0] = 1
@@ -107,4 +109,8 @@ testMatrix[2, 2] = 9
 print("\(testMatrix)")
 print("\(testMatrix.row(1))")
 print("\(testMatrix.column(1))")
-*/
+testMatrix.column(1)[1] = 9
+
+print("\(testMatrix)")
+print("\(testMatrix.row(1))")
+print("\(testMatrix.column(1))")

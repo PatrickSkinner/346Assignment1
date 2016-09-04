@@ -53,11 +53,17 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     public subscript(index: Int) -> T{
         get {
             precondition(index < self.size, "Index value out of bounds")
-            return vector[0,index];
+            if(isHorizontal){
+                return vector[0,index];
+            }
+            return vector[index,0];
         }
         set {
             precondition(index < self.size, "Index value out of bounds")
-            vector[0,index] = newValue
+            if(isHorizontal){
+                vector[0,index] = newValue;
+            }
+            vector[index,0] = newValue;
         }
     }
     
@@ -72,9 +78,9 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     public var matrixview: Matrix<T>{
         get{
             if(isHorizontal){
-                return Matrix(rows: 1, columns: size, matrix: vector.matrix)
+                return vector
             } else {
-                return Matrix(rows: size, columns: 1, matrix: vector.matrix)
+                return vector
             }
             
         }

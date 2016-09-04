@@ -11,7 +11,7 @@ import Foundation
 public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVector, CustomStringConvertible {
     public var rows: Int
     public var columns: Int
-    var matrix: [[T]]
+    private var matrix: [[T]]
     
     init(rows: Int, columns: Int) {
         
@@ -73,12 +73,12 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     }
     
     public func column(index: Int) -> Vector<T> {
-        var vector: [T]
-        vector = [T](count: columns, repeatedValue:T())
+        var vector: [[T]]
+        vector = [[T]](count: columns, repeatedValue:[T](count: 1, repeatedValue:T()))
         for x in 0...rows-1{
-            vector[x] = matrix[x][index];
+            vector[x][0] = matrix[x][index];
         }
-        return Vector(size: columns, matrix: [vector], isHorizontal: false);
+        return Vector(size: columns, matrix: vector, isHorizontal: false);
     }
     
     public var transpose: Matrix<T>{
