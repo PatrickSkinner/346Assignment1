@@ -34,6 +34,7 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     }
     
     
+    
     public subscript(row: Int, column: Int) -> T{
         get {
             precondition(row <= self.rows, "Row Value out of bounds")
@@ -139,6 +140,8 @@ public func -<T: MatrixData>(lhs: Matrix<T>, rhs: Matrix<T>) -> Matrix<T>{
     }
     return subMatrix
 }
+
+
 
 // Matrix and scalar operators
 public func +<T: MatrixData>(lhs: Matrix<T>, rhs:T) -> Matrix<T>{
