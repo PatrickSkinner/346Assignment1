@@ -87,7 +87,7 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     }
 }
 
-// Vector and Vector operators
+// Vector and Vector operatorss
 public func *<T: MatrixData>(lhs: Vector<T>, rhs: Vector<T>) -> T{
     
     precondition(lhs.size == rhs.size , "Vectors must be the same size")

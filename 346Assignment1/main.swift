@@ -51,7 +51,15 @@ print("\(result)")
 */
 
 
+var fractionOne: Fraction = Fraction(num: 2, den: 3)
+var fractionTwo: Fraction = Fraction(num: 2, den: 4)
 
+print("\(fractionOne == fractionTwo)")
+
+var complexOne: Complex = Complex(real: 2, imag: 3)
+var complexTwo: Complex = Complex(real: 1, imag: 3)
+
+print("\(complexOne == complexTwo)")
 
 /*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 3)
@@ -102,21 +110,19 @@ testMatrix[2, 0] = 7
 testMatrix[2, 1] = 8
 testMatrix[2, 2] = 9
 
-print("\(testMatrix/0)")
-*/
+print("\(testMatrix)")
+print("\(testMatrix.row(1))")
+print("\(testMatrix.column(1))")
+testMatrix.column(1)[1] = 9
 
-var tester: TestMatrixVector = TestMatrixVector<Int>()
-var testMatrix: [[Int]] = [[Int]](count: 3, repeatedValue:[Int](count: 3, repeatedValue:Int()))
+print("\(testMatrix)")
+print("\(testMatrix.row(1))")
+print("\(testMatrix.column(1))")
+ */
 
-testMatrix[0][0] = 1
-testMatrix[0][1] = 2
-testMatrix[0][2] = 3
-testMatrix[1][0] = 4
-testMatrix[1][1] = 5
-testMatrix[1][2] = 6
-testMatrix[2][0] = 7
-testMatrix[2][1] = 8
-testMatrix[2][2] = 9
-
-print("\(tester.testInitialiser(5, columns: 5))")
-print("\(tester.testInitialiser(3, columns: 3, matrix: testMatrix))")
+/*
+var testMatrix: Matrix<Fraction> = Matrix(rows: 3, columns: 3)
+testMatrix[1, 1] = Fraction(num: 5,den: 2)
+print("\(testMatrix)")
+ 
+ */
