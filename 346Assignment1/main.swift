@@ -71,8 +71,8 @@ testVectorCol[0] = 1
 testVectorCol[1] = 4
 testVectorCol[2] = 7
 
-print("\(tester.testRow(testMatrixOne, vector: testVectorRow, index: 0))")
-print("\(tester.testColumn(testMatrixOne, vector: testVectorCol, index: 0))")
+print("\(tester.testRow(testMatrixOne, desiredResult: testVectorRow, index: 0))")
+print("\(tester.testColumn(testMatrixOne, desiredResult: testVectorCol, index: 0))")
 
 
 testMatrixTwo[0, 0] = 2
@@ -152,5 +152,6 @@ testMatrixResult[2, 2] = 4
 print("\(tester.testScalarDivision(testMatrixOne, input2: 2, desiredResult: testMatrixResult))")
 
 print("\(tester.testAddresses(testMatrixOne, input2: testMatrixOne.copy()))")
-
-
+print("\(!tester.testAddresses(testMatrixOne, input2: testMatrixOne))")
+testMatrixTwo = testMatrixOne
+print("\(!tester.testAddresses(testMatrixOne, input2: testMatrixTwo))")
