@@ -40,4 +40,35 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         }
         return false
     }
+    
+    func testVectorView(matrix: Matrix<T>) -> Bool{
+        let vector: Vector = matrix.vectorview
+        if(vector.isHorizontal){
+            for x in 0...vector.size-1 {
+                if(matrix[0, x] != vector[x]){
+                    return false
+                }
+            }
+        } else {
+            for x in 0...vector.size-1 {
+                if(matrix[x, 0] != vector[x]){
+                    return false
+                }
+            }
+
+        }
+        return true
+    }
+    
+    func testTranspose(input: Matrix<T>, output: Matrix<T>) -> Bool{
+        let transposed: Matrix<T> = input.transpose
+        for x in 0...output.rows-1 {
+            for y in 0...output.columns-1 {
+                if(transposed[x,y] != output[x,y]){
+                    return false
+                }
+            }
+        }
+        return true
+    }
 }

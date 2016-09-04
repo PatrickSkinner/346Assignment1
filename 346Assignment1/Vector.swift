@@ -11,7 +11,7 @@ import Foundation
 public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatrix{
     public var size: Int
     private var vector: Matrix<T>
-    private var isHorizontal: Bool
+    public var isHorizontal: Bool
     
     init(size: Int) {
         precondition(size > 0 , "Size must be greater than 0")
