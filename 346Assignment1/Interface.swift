@@ -20,11 +20,27 @@ public protocol MatrixData: CustomStringConvertible {
     func -(_: Self, _:Self) -> Self
 }
 
+// Constraints for matrix data generic type
+public protocol MatrixDataEquatable: MatrixData, Equatable {
+    // Must have a default initialiser
+    init()
+    // Must provide basic arithmetic operators
+    // with itself
+    func *(_: Self, _:Self) -> Self
+    func /(_: Self, _:Self) -> Self
+    func +(_: Self, _:Self) -> Self
+    func -(_: Self, _:Self) -> Self
+}
+
 // Int, Float and Double alread conform to MatrixData -
 // extend them to inform compiler about this.
 extension Int: MatrixData { }
 extension Float: MatrixData { }
 extension Double: MatrixData { }
+
+extension Int: MatrixDataEquatable { }
+extension Float: MatrixDataEquatable { }
+extension Double: MatrixDataEquatable { }
 
 public protocol BasicMatrix: CustomStringConvertible {
     // Generic data type
@@ -98,4 +114,8 @@ public protocol VectorToMatrix: VectorArithmetic {
     associatedtype T: MatrixData
     // Convert Vector to Matrix
     var matrixview: Matrix<T> { get }
+}
+
+public protocol testClass{
+    //associatedtype T: MatrixDataEquatable
 }

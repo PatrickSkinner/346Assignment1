@@ -26,7 +26,7 @@ var testVector2: Vector<Int> = Vector(size: 3)
 testVector*testVector2
 */
 
-
+/*
 var leftMatrix: Matrix<Int> = Matrix(rows: 2, columns: 2)
 var rightMatrix: Matrix<Int> = Matrix(rows: 2, columns: 2)
 
@@ -48,7 +48,7 @@ print()
 var result: Matrix<Int> = leftMatrix+rightMatrix
 
 print("\(result)")
-
+*/
 
 
 
@@ -104,3 +104,19 @@ testMatrix[2, 2] = 9
 
 print("\(testMatrix/0)")
 */
+
+var tester: TestMatrixVector = TestMatrixVector<Int>()
+var testMatrix: [[Int]] = [[Int]](count: 3, repeatedValue:[Int](count: 3, repeatedValue:Int()))
+
+testMatrix[0][0] = 1
+testMatrix[0][1] = 2
+testMatrix[0][2] = 3
+testMatrix[1][0] = 4
+testMatrix[1][1] = 5
+testMatrix[1][2] = 6
+testMatrix[2][0] = 7
+testMatrix[2][1] = 8
+testMatrix[2][2] = 9
+
+print("\(tester.testInitialiser(5, columns: 5))")
+print("\(tester.testInitialiser(3, columns: 3, matrix: testMatrix))")
