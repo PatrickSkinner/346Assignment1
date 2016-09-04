@@ -10,7 +10,7 @@
  Represents a complex number
  
  */
-class Complex : CustomStringConvertible {
+final class Complex : MatrixData, CustomStringConvertible {
     
     // STORED PROPERTIES
     

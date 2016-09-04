@@ -93,7 +93,7 @@ print("\(testVector*testVector)")
 print("\(testVector.dot(testVector))")
 */
 
-
+/*
 var testMatrix: Matrix<Int> = Matrix(rows: 3, columns: 3)
 
 testMatrix[0, 0] = 1
@@ -114,3 +114,8 @@ testMatrix.column(1)[1] = 9
 print("\(testMatrix)")
 print("\(testMatrix.row(1))")
 print("\(testMatrix.column(1))")
+ */
+
+var testMatrix: Matrix<Fraction> = Matrix(rows: 3, columns: 3)
+testMatrix[1, 1] = Fraction(num: 5,den: 2)
+print("\(testMatrix)")

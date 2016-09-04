@@ -12,7 +12,7 @@ import Foundation
  Represents a number as a fraction of two integers
  
  */
-class Fraction: CustomStringConvertible {
+final class Fraction: MatrixData, CustomStringConvertible {
     
     // STORED PROPERTIES
     
@@ -60,7 +60,7 @@ class Fraction: CustomStringConvertible {
      
      Numerator gets set to 0 and denominator gets set to 1
      */
-    convenience init() {
+    convenience required init() {
         self.init(num: 0, den: 1);
     }
     
