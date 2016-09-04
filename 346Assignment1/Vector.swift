@@ -85,7 +85,7 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     }
     
     public func copy() -> Vector {
-        return Vector(size: size, vector: vector)
+        return Vector(size: size, vector: vector.copy())
     }
     
     public var description: String{

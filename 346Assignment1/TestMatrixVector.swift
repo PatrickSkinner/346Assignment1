@@ -241,4 +241,169 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
+    func testVectorInitialiser(size: Int) -> Bool{
+        let testVector = Vector<Int>(size: size)
+        if(testVector.size == size){
+            return true
+        }
+        return false
+    }
+    
+    func testVectorInitialiser(size: Int, isHorizontal: Bool) -> Bool{
+        let testVector = Vector<Int>(size: size, isHorizontal: isHorizontal)
+        if( (testVector.size == size) && (isHorizontal == isHorizontal) ){
+            return true
+        }
+        return false
+    }
+    
+    func testVectorInitialiser(size: Int, vector: Matrix<T>) -> Bool{
+        let testVector = Vector<T>(size: size, vector: vector)
+        if(testVector.size == size){
+            if(testVector.isHorizontal){
+                for x in 0...size-1 {
+                    if(testVector[x] != vector[0, x]){
+                        return false
+                    }
+                }
+            } else {
+                for x in 0...size-1 {
+                    if(testVector[x] != vector[x, 0]){
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+        return false
+    }
+    
+    func testVectorInitialiser(size: Int, vector: [[T]], isHorizontal: Bool) -> Bool{
+        let testVector = Vector<T>(size: size, matrix: vector, isHorizontal: isHorizontal)
+        if(testVector.size == size){
+            if(testVector.isHorizontal){
+                for x in 0...size-1 {
+                    if(testVector[x] != vector[0][x]){
+                        return false
+                    }
+                }
+            } else {
+                for x in 0...size-1 {
+                    if(testVector[x] != vector[x][0]){
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+        return false
+    }
+    
+    func testVectorDot(input1: Vector<T>, input2: Vector<T>, desiredOutput: T) -> Bool{
+        if(input2.dot(input2) == desiredOutput){
+            return true
+        }
+        return false
+    }
+    
+    func testVectorSubscriptSet(input: Vector<T>, index: Int, value: T) -> Bool{
+        let testedVector = input.copy()
+        testedVector[index] = value
+        if(testedVector[index] == value){
+            return true
+        }
+        return false
+    }
+    
+    func testVectorSubscriptGet(input: Vector<T>, index: Int, value: T) -> Bool{
+        if(input[index] == value){
+            return true
+        }
+        return false
+    }
+    
+    func testMatrixView(input: Vector<T>) -> Bool{
+        let testMatrix: Matrix<T> = input.matrixview
+        if(input.isHorizontal){
+            for x in 0...input.size-1 {
+                if(input[x] != testMatrix[0,x]){
+                    return false
+                }
+            }
+        } else {
+            for x in 0...input.size-1 {
+                if(input[x] != testMatrix[x,0]){
+                    return false
+                }
+            }
+        }
+        return false
+    }
+    
+    func testVectorMultiplication(input1: Vector<T>, input2: Vector<T>, desiredOutput: T) -> Bool{
+        if(input1*input2 == desiredOutput){
+            return true
+        }
+        return false
+    }
+    
+    func testVectorAddition(input1: Vector<T>, input2: Vector<T>, desiredOutput: Vector<T>) -> Bool{
+        let result: Vector<T> = input1+input2
+        for x in 0...result.size-1 {
+            if(result[x] != desiredOutput[x]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func testVectorSubtraction(input1: Vector<T>, input2: Vector<T>, desiredOutput: Vector<T>) -> Bool{
+        let result: Vector<T> = input1-input2
+        for x in 0...result.size-1 {
+            if(result[x] != desiredOutput[x]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func testVectorScalarAddition(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
+        let result: Vector<T> = input1+input2
+        for x in 0...result.size-1 {
+            if(result[x] != desiredOutput[x]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func testVectorScalarSubtraction(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
+        let result: Vector<T> = input1-input2
+        for x in 0...result.size-1 {
+            if(result[x] != desiredOutput[x]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func testVectorScalarMultiplication(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
+        let result: Vector<T> = input1*input2
+        for x in 0...result.size-1 {
+            if(result[x] != desiredOutput[x]){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func testVectorScalarDivision(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
+        let result: Vector<T> = input1/input2
+        for x in 0...result.size-1 {
+            if(result[x] != desiredOutput[x]){
+                return false
+            }
+        }
+        return true
+    }
 }
