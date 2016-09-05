@@ -21,16 +21,7 @@ public protocol MatrixData: CustomStringConvertible {
 }
 
 // Constraints for matrix data generic type
-public protocol MatrixDataEquatable: MatrixData, Equatable {
-    // Must have a default initialiser
-    init()
-    // Must provide basic arithmetic operators
-    // with itself
-    func *(_: Self, _:Self) -> Self
-    func /(_: Self, _:Self) -> Self
-    func +(_: Self, _:Self) -> Self
-    func -(_: Self, _:Self) -> Self
-}
+public protocol MatrixDataEquatable: MatrixData, Equatable {}
 
 // Int, Float and Double alread conform to MatrixData -
 // extend them to inform compiler about this.

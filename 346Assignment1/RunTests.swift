@@ -1722,9 +1722,45 @@ public class RunTests {
         
     }
     
-
-    
-    
+    func testEdgeCases(){
+        let tester: TestMatrixVector = TestMatrixVector<Int>()
+        
+        if(tester.testInitialiser(10000, columns: 10000)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Failed to create large matrix")
+        }
+        
+        if(tester.testSubscriptGet(9999, y: 9999, value: 0, matrix: Matrix(rows: 10000, columns: 10000))){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Large Matrix Subscript get failed")
+        }
+        
+        if(tester.testInitialiser(10000, columns: 1)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Failed to create 10000x1 matrix")
+        }
+        
+        if(tester.testInitialiser(1, columns: 10000)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Failed to create 1x10000 matrix")
+        }
+    }
     
     
     
@@ -1744,6 +1780,9 @@ public class RunTests {
         testVectorFloat()
         print("Testing Matrix with Fraction")
         testMatrixFraction()
+        
+        print("Testing Edge Cases")
+        testEdgeCases()
         
         print()
         print("Tests Run: \(self.testsRun)")
