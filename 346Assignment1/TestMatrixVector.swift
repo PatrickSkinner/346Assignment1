@@ -25,8 +25,8 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         Create a new matrix of set size, assign the passed in 2D array as the internal matrix,
         return true if all values in the Matrix class are as expected.
      */
-    func testInitialiser(rows: Int, columns: Int, matrix: [[Int]]) -> Bool{
-        let newMatrix: Matrix<Int> = Matrix(rows: rows, columns: columns, matrix: matrix);
+    func testInitialiser(rows: Int, columns: Int, matrix: [[T]]) -> Bool{
+        let newMatrix: Matrix<T> = Matrix(rows: rows, columns: columns, matrix: matrix);
         if(newMatrix.rows == rows && newMatrix.columns == columns){
             for x in 0...rows-1 {
                 for y in 0...columns-1 {
@@ -300,7 +300,7 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
     }
     
     func testVectorDot(input1: Vector<T>, input2: Vector<T>, desiredOutput: T) -> Bool{
-        if(input2.dot(input2) == desiredOutput){
+        if(input1.dot(input2) == desiredOutput){
             return true
         }
         return false
@@ -327,6 +327,8 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         if(input.isHorizontal){
             for x in 0...input.size-1 {
                 if(input[x] != testMatrix[0,x]){
+                    print("\(input[x])")
+                    print("\(testMatrix[0,x])")
                     return false
                 }
             }
@@ -337,7 +339,7 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
                 }
             }
         }
-        return false
+        return true
     }
     
     func testVectorMultiplication(input1: Vector<T>, input2: Vector<T>, desiredOutput: T) -> Bool{
