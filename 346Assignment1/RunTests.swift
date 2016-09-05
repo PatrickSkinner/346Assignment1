@@ -357,6 +357,142 @@ public class RunTests {
         let testVectorTwo = Vector<Int>(size: 3)
         let testVectorResult = Vector<Int>(size: 3)
         
+        testVectorOne[0] = 1
+        testVectorOne[1] = 2
+        testVectorOne[2] = 3
+        
+        testVectorTwo[0] = 4
+        testVectorTwo[1] = 5
+        testVectorTwo[2] = 6
+        
+        
+        if(tester.testVectorSubscriptSet(testVectorOne, index: 1, value: 5)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector Subscript Set test Failed")
+        }
+        
+        if(tester.testVectorSubscriptGet(testVectorOne, index: 1, value: 2)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector Subscript Get test Failed")
+        }
+        
+        
+        if(tester.testMatrixView(testVectorOne)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector Matrix View test Failed")
+        }
+        
+        
+        if(tester.testVectorDot(testVectorOne, input2: testVectorTwo, desiredOutput: 32)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector Dot product test Failed")
+        }
+        
+        if(tester.testVectorMultiplication(testVectorOne, input2: testVectorTwo, desiredOutput: 32)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector multiplication test Failed")
+        }
+        
+        
+        testVectorResult[0] = 5
+        testVectorResult[1] = 7
+        testVectorResult[2] = 9
+        
+        if(tester.testVectorAddition(testVectorOne, input2: testVectorTwo, desiredOutput: testVectorResult)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector addition test Failed")
+        }
+        
+        
+        testVectorResult[0] = -3
+        testVectorResult[1] = -3
+        testVectorResult[2] = -3
+        
+        if(tester.testVectorSubtraction(testVectorOne, input2: testVectorTwo, desiredOutput: testVectorResult)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector subtraction test Failed")
+        }
+        
+        
+        testVectorResult[0] = 3
+        testVectorResult[1] = 4
+        testVectorResult[2] = 5
+        
+        if(tester.testVectorScalarAddition(testVectorOne, input2: 2, desiredOutput: testVectorResult)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector scalar addition test Failed")
+        }
+        
+        testVectorResult[0] = -1
+        testVectorResult[1] = 0
+        testVectorResult[2] = 1
+        
+        if(tester.testVectorScalarSubtraction(testVectorOne, input2: 2, desiredOutput: testVectorResult)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector scalar subtraction test Failed")
+        }
+        
+        testVectorResult[0] = 2
+        testVectorResult[1] = 4
+        testVectorResult[2] = 6
+        
+        if(tester.testVectorScalarMultiplication(testVectorOne, input2: 2, desiredOutput: testVectorResult)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector scalar multiplication test Failed")
+        }
+        
+        testVectorResult[0] = 0
+        testVectorResult[1] = 1
+        testVectorResult[2] = 1
+        
+        if(tester.testVectorScalarDivision(testVectorOne, input2: 2, desiredOutput: testVectorResult)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Int Vector scalar division test Failed")
+        }
         
     }
 
