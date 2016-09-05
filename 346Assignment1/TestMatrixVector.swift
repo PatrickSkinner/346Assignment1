@@ -172,7 +172,7 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
     }
     
     /** testScalarAddition
-        Add T to each value in the matrix, return true if the result of this operation matches desiredResult.
+        Add input2 to each value in the matrix, return true if the result of this operation matches desiredResult.
      */
     func testScalarAddition(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
         let result: Matrix<T> = input1+input2
@@ -187,7 +187,7 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
     }
     
     /** testScalarSubtraction
-        Subtract T from each value in the matrix, return true if the result of this operation matches desiredResult.
+        Subtract input2 from each value in the matrix, return true if the result of this operation matches desiredResult.
      */
     func testScalarSubtraction(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
         let result: Matrix<T> = input1-input2
@@ -202,7 +202,7 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
     }
     
     /** testScalarMultiplication
-        Multiply each value in the matrix by T, return true if the result of this operation matches desiredResult.
+        Multiply each value in the matrix by input2, return true if the result of this operation matches desiredResult.
      */
     func testScalarMultiplication(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
         let result: Matrix<T> = input1*input2
@@ -217,7 +217,7 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
     }
     
     /** testScalarDivision
-        Divide each value in the matrix by T, return true if the result of this operation matches desiredResult.
+        Divide each value in the matrix by input2, return true if the result of this operation matches desiredResult.
      */
     func testScalarDivision(input1: Matrix<T>, input2: T, desiredResult: Matrix<T>) -> Bool{
         let result: Matrix<T> = input1/input2
@@ -241,6 +241,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
+    /** testVectorInitialiser
+        Return true if the intitialised vector has the correct size
+     */
     func testVectorInitialiser(size: Int) -> Bool{
         let testVector = Vector<Int>(size: size)
         if(testVector.size == size){
@@ -249,6 +252,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorInitialiser
+        Return true if the intitialised vector has the correct size and isHorizontal
+     */
     func testVectorInitialiser(size: Int, isHorizontal: Bool) -> Bool{
         let testVector = Vector<Int>(size: size, isHorizontal: isHorizontal)
         if( (testVector.size == size) && (isHorizontal == isHorizontal) ){
@@ -257,6 +263,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorInitialiser
+        Return true if the intitialised vector has the correct size and all elements in the internal matrix are as expected.
+     */
     func testVectorInitialiser(size: Int, vector: Matrix<T>) -> Bool{
         let testVector = Vector<T>(size: size, vector: vector)
         if(testVector.size == size){
@@ -278,6 +287,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorInitialiser
+        Return true if the intitialised vector has the correct size and orientation and all elements in the internal matrix are as expected.
+     */
     func testVectorInitialiser(size: Int, vector: [[T]], isHorizontal: Bool) -> Bool{
         let testVector = Vector<T>(size: size, matrix: vector, isHorizontal: isHorizontal)
         if(testVector.size == size){
@@ -299,6 +311,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorDot
+        Return true if the dot product of the two input vectors matches the desired output
+     */
     func testVectorDot(input1: Vector<T>, input2: Vector<T>, desiredOutput: T) -> Bool{
         if(input2.dot(input2) == desiredOutput){
             return true
@@ -306,6 +321,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorSubscriptSet
+        Replace a value in the given vector and return true if the value was successfully replaced
+     */
     func testVectorSubscriptSet(input: Vector<T>, index: Int, value: T) -> Bool{
         let testedVector = input.copy()
         testedVector[index] = value
@@ -315,6 +333,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorSubscriptSet
+        Retrieve the value at the given index in the given vector, return true if the retrieved value matches the given value.
+     */
     func testVectorSubscriptGet(input: Vector<T>, index: Int, value: T) -> Bool{
         if(input[index] == value){
             return true
@@ -322,6 +343,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testMatrixView
+        Convert the given vector to a matrix, return true if all elements in the matrix match the respective elements in the original vector.
+     */
     func testMatrixView(input: Vector<T>) -> Bool{
         let testMatrix: Matrix<T> = input.matrixview
         if(input.isHorizontal){
@@ -340,6 +364,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorMultiplication
+        Multiply two vectors together, return true if the result of this operation matches desiredOutput.
+     */
     func testVectorMultiplication(input1: Vector<T>, input2: Vector<T>, desiredOutput: T) -> Bool{
         if(input1*input2 == desiredOutput){
             return true
@@ -347,6 +374,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return false
     }
     
+    /** testVectorAddition
+        Add two vectors together, return true if the result of this operation matches desiredOutput.
+     */
     func testVectorAddition(input1: Vector<T>, input2: Vector<T>, desiredOutput: Vector<T>) -> Bool{
         let result: Vector<T> = input1+input2
         for x in 0...result.size-1 {
@@ -357,6 +387,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
+    /** testVectorSubtraction
+        Subtract input2 from input1, return true if the result of this operation matches desiredOutput.
+     */
     func testVectorSubtraction(input1: Vector<T>, input2: Vector<T>, desiredOutput: Vector<T>) -> Bool{
         let result: Vector<T> = input1-input2
         for x in 0...result.size-1 {
@@ -367,6 +400,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
+    /** testVectorScalarAddition
+        Add input2 to each value in the vector, return true if the result of this operation matches desiredOutput.
+     */
     func testVectorScalarAddition(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
         let result: Vector<T> = input1+input2
         for x in 0...result.size-1 {
@@ -377,6 +413,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
+    /** testVectorScalarSubtract
+        Subtract input2 from each value in the vector, return true if the result of this operation matches desiredOutput.
+     */
     func testVectorScalarSubtraction(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
         let result: Vector<T> = input1-input2
         for x in 0...result.size-1 {
@@ -387,6 +426,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
+    /** testVectorScalarMultiplication
+        Multiply each value in the vector by input2, return true if the result of this operation matches desiredOutput.
+     */
     func testVectorScalarMultiplication(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
         let result: Vector<T> = input1*input2
         for x in 0...result.size-1 {
@@ -397,6 +439,9 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         return true
     }
     
+    /** testVectorScalarDivision
+        Divide each value in the vector by input2, return true if the result of this operation matches desiredOutput.
+     */
     func testVectorScalarDivision(input1: Vector<T>, input2: T, desiredOutput: Vector<T>) -> Bool{
         let result: Vector<T> = input1/input2
         for x in 0...result.size-1 {
