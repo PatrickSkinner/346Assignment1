@@ -13,6 +13,10 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
     public var columns: Int
     private var matrix: [[T]]
     
+    convenience init(){
+        self.init(rows: 1, columns: 1)
+    }
+    
     init(rows: Int, columns: Int) {
         
         precondition(rows > 0 , "Rows must be greater than 0")
@@ -32,7 +36,6 @@ public class Matrix <T: MatrixData>: BasicMatrix, MatrixArithmetic, MatrixToVect
         self.columns = columns
         self.matrix = matrix
     }
-    
     
     
     public subscript(row: Int, column: Int) -> T{

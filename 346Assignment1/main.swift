@@ -155,3 +155,12 @@ print("\(tester.testAddresses(testMatrixOne, input2: testMatrixOne.copy()))")
 print("\(!tester.testAddresses(testMatrixOne, input2: testMatrixOne))")
 testMatrixTwo = testMatrixOne
 print("\(!tester.testAddresses(testMatrixOne, input2: testMatrixTwo))")
+
+
+
+
+
+
+var test2dArray: [[Int]] = [[Int]](count: 1, repeatedValue:[Int](count: 3, repeatedValue:Int()))
+
+print("\(tester.testVectorInitialiser(3, vector: test2dArray, isHorizontal: true)) dat")

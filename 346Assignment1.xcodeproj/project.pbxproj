@@ -11,6 +11,7 @@
 		221BA42B1D6BB4A80050044C /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BA42A1D6BB4A80050044C /* Matrix.swift */; };
 		22D219EB1D7B92ED001E27EE /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D219EA1D7B92ED001E27EE /* Vector.swift */; };
 		22D219ED1D7B97A5001E27EE /* TestMatrixVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D219EC1D7B97A5001E27EE /* TestMatrixVector.swift */; };
+		96AF4F451D7CECAF003469D8 /* RunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AF4F441D7CECAF003469D8 /* RunTests.swift */; };
 		96C52BB61D7BA8F000B786B0 /* Fraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C52BB51D7BA8F000B786B0 /* Fraction.swift */; };
 		96C52BB81D7BACF200B786B0 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C52BB71D7BACF200B786B0 /* Complex.swift */; };
 		96E8C0671D791B9D001B5060 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8C0661D791B9D001B5060 /* main.swift */; };
@@ -34,6 +35,7 @@
 		221BA42A1D6BB4A80050044C /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		22D219EA1D7B92ED001E27EE /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		22D219EC1D7B97A5001E27EE /* TestMatrixVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMatrixVector.swift; sourceTree = "<group>"; };
+		96AF4F441D7CECAF003469D8 /* RunTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunTests.swift; sourceTree = "<group>"; };
 		96C52BB51D7BA8F000B786B0 /* Fraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fraction.swift; sourceTree = "<group>"; };
 		96C52BB71D7BACF200B786B0 /* Complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
 		96E8C0661D791B9D001B5060 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				22D219EC1D7B97A5001E27EE /* TestMatrixVector.swift */,
 				96C52BB51D7BA8F000B786B0 /* Fraction.swift */,
 				96C52BB71D7BACF200B786B0 /* Complex.swift */,
+				96AF4F441D7CECAF003469D8 /* RunTests.swift */,
 			);
 			path = 346Assignment1;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				221BA42B1D6BB4A80050044C /* Matrix.swift in Sources */,
+				96AF4F451D7CECAF003469D8 /* RunTests.swift in Sources */,
 				22D219ED1D7B97A5001E27EE /* TestMatrixVector.swift in Sources */,
 				221BA4291D6BB3F00050044C /* Interface.swift in Sources */,
 				96C52BB81D7BACF200B786B0 /* Complex.swift in Sources */,

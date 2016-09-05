@@ -13,6 +13,10 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     private var vector: Matrix<T>
     public var isHorizontal: Bool
     
+    convenience init(){
+        self.init(size: 1)
+    }
+    
     init(size: Int) {
         precondition(size > 0 , "Size must be greater than 0")
         self.size = size
