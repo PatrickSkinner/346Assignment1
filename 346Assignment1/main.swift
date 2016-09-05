@@ -11,13 +11,3 @@ import Foundation
 var test: RunTests = RunTests()
 
 test.getResults()
-
-//let testVectorOne = Vector<Int>(size: 3)
-
-//testVectorOne[0] = 1
-//testVectorOne[1] = 2
-//testVectorOne[2] = 3
-
-//var tester: TestMatrixVector = TestMatrixVector<Int>()
-
-//print("\(tester.testMatrixView(testVectorOne))")
