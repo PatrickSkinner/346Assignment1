@@ -1743,6 +1743,15 @@ public class RunTests {
             self.errorMessages.append("Large Matrix Subscript get failed")
         }
         
+        if(tester.testVectorView(Matrix(rows: 10000, columns: 10000))){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Large Matrix vector view  failed")
+        }
+        
         if(tester.testInitialiser(10000, columns: 1)){
             self.testsRun += 1
             self.testsPassed += 1
@@ -1759,6 +1768,24 @@ public class RunTests {
             self.testsRun += 1
             self.testsFailed += 1
             self.errorMessages.append("Failed to create 1x10000 matrix")
+        }
+        
+        if(tester.testRow(Matrix(rows: 10000, columns: 10000), desiredResult: Vector(size: 10000), index: 0)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Large Matrix vector row failed")
+        }
+        
+        if(tester.testColumn(Matrix(rows: 10000, columns: 10000), desiredResult: Vector(size: 10000), index: 0)){
+            self.testsRun += 1
+            self.testsPassed += 1
+        } else {
+            self.testsRun += 1
+            self.testsFailed += 1
+            self.errorMessages.append("Large Matrix vector column failed")
         }
     }
     
