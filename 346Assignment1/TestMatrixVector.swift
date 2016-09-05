@@ -34,8 +34,8 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         columns: Int, the number of columns in the desired matrix
         matrix: [[Int]], the internal 2D matrix to be used
      */
-    func testInitialiser(rows: Int, columns: Int, matrix: [[Int]]) -> Bool{
-        let newMatrix: Matrix<Int> = Matrix(rows: rows, columns: columns, matrix: matrix);
+    func testInitialiser(rows: Int, columns: Int, matrix: [[T]]) -> Bool{
+        let newMatrix: Matrix<T> = Matrix(rows: rows, columns: columns, matrix: matrix);
         if(newMatrix.rows == rows && newMatrix.columns == columns){
             for x in 0...rows-1 {
                 for y in 0...columns-1 {
@@ -423,6 +423,8 @@ public class TestMatrixVector<T: MatrixDataEquatable>{
         if(input.isHorizontal){
             for x in 0...input.size-1 {
                 if(input[x] != testMatrix[0,x]){
+                    print("\(input[x])")
+                    print("\(testMatrix[0,x])")
                     return false
                 }
             }

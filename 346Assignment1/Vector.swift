@@ -61,7 +61,7 @@ public class Vector<T: MatrixData>: BasicVector, VectorArithmetic, VectorToMatri
     
     public func dot(v: Vector<T>) -> T{
         
-        precondition(v.size != self.size, "Vectors must be the same size")
+        precondition(v.size == self.size, "Vectors must be the same size")
         
         var total: T = T()
         for x in 0...size-1{
