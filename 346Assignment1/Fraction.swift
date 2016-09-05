@@ -12,7 +12,7 @@ import Foundation
  Represents a number as a fraction of two integers
  
  */
-final class Fraction: MatrixData, Equatable, CustomStringConvertible {
+final class Fraction: MatrixData, MatrixDataEquatable, CustomStringConvertible {
     
     // STORED PROPERTIES
     
